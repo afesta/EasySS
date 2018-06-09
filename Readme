@@ -1,0 +1,15 @@
+make puzzleApi simple and only contain member variables
+->maybe print methods?
+
+puzzleSolver
+->generate random easy/hard puzzle
+->print current
+->solve
+->abstract with easy and hard solvers
+
+
+database with easy/hard puzzles
+
+puzzleApi
+->easy, hard
+
