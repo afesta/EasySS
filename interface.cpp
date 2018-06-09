@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <vector>
 
 void interface::start(){
   _loop = true;
@@ -33,7 +34,9 @@ void interface::input(){
 int* interface::genEasy(){
   int sz = easy.size();
   int pos = rand() % sz + 1;
+  _current.clear();
   _current.setBase(easy[pos-1]);
+  _current.init();
   status = 1;
   return easy[pos-1];
 };
@@ -41,13 +44,15 @@ int* interface::genEasy(){
 int* interface::genHard(){
   int sz = hard.size();
   int pos = rand() % sz + 1;
+  _current.clear();
   _current.setBase(hard[pos-1]);
+  _current.init();
   status = 2;
   return hard[pos-1];
 };
 
 void interface::print(){
-  int* temp = _current.getBase();
+  std::vector<int> temp = _current.getCur();
   for(int i = 0;i < 81;i=i+9){
     std::cout << temp[i] << ' ';
     std::cout << temp[i+1] << ' ';

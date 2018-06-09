@@ -13,7 +13,18 @@ class puzzle{
 public:
   void setBase(int* base);
   int* getBase();
+  std::vector<int> getCur();
+
+  void clear();
   
+  void initBoard();
+  void createRows();
+  void createCols();
+  void createBoxes();
+  void init();
+  void updateCur();
+  void checkZeros();
+  int BoardBox(int cRow, int cCol);
 };
 
 #endif

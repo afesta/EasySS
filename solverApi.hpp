@@ -7,6 +7,7 @@
 #include <algorithm>
 
 class solver{
+  puzzle current;
 public:
   solver(){}
   virtual ~solver(){}
