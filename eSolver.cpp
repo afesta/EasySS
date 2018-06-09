@@ -1,15 +1,9 @@
 #include "solverApi.hpp"
 
 class eSolver : public solver {
-  std::vector<std::vector<int> > _rows;
-  std::vector<std::vector<int> > _cols;
-  std::vector<std::vector<int> > _boxes;
-  std::vector<int> _cur;
-  int zeros;
-  int _base[81];
-
+  puzzle current;
 public:
-  void createRows(){
+  void createRows(puzzle cur){
     for(int i = 0;i <= 80;i++){
       if(i <= 8)
 	_rows[0].push_back(_base[i]);
