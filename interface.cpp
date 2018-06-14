@@ -56,24 +56,37 @@ int* interface::genHard(){
 };
 
 void interface::print(){
-  std::vector<int> temp = _current.getCur();
-  for(int i = 0;i < 81;i=i+9){
-    std::cout << temp[i] << ' ';
-    std::cout << temp[i+1] << ' ';
-    std::cout << temp[i+2] << ' ';
-    std::cout << temp[i+3] << ' ';
-    std::cout << temp[i+4] << ' ';
-    std::cout << temp[i+5] << ' ';
-    std::cout << temp[i+6] << ' ';
-    std::cout << temp[i+7] << ' ';
-    std::cout << temp[i+8] << ' ';
+  if(status == 0){
+    std::cout << "no puzzle currently" << std::endl;
+  }
+  else{
+    std::vector<int> temp = _current.getCur();
+    for(int i = 0;i < 81;i=i+9){
+      std::cout << temp[i] << ' ';
+      std::cout << temp[i+1] << ' ';
+      std::cout << temp[i+2] << ' ';
+      std::cout << temp[i+3] << ' ';
+      std::cout << temp[i+4] << ' ';
+      std::cout << temp[i+5] << ' ';
+      std::cout << temp[i+6] << ' ';
+      std::cout << temp[i+7] << ' ';
+      std::cout << temp[i+8] << ' ';
+      std::cout << std::endl;
+    }
     std::cout << std::endl;
   }
-  std::cout << std::endl;
 }
 
 void interface::solve(){
-  eSolver esolver(_current);
-  puzzle ret = esolver.update();
-  _current = ret;
+  if(status == 0){
+    std::cout << "no puzzle currently" << std::endl;
+  }
+  else if(status == 1){
+    eSolver esolver(_current);
+    puzzle ret = esolver.update();
+    _current = ret;
+  }
+  else if(status == 2){
+    std::cout << "hard puzzle not up yet" << std::endl;
+  }
 }

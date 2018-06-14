@@ -11,8 +11,8 @@ class solver{
 public:
   solver(){}
   solver(puzzle cur){_cur = cur;}
-  virtual ~solver(){}
-  virtual void update() const = 0;
+  virtual ~solver() = 0;
+  virtual puzzle update2() const = 0;
 };
 
 class eSolver {
@@ -20,6 +20,7 @@ class eSolver {
 public:
   eSolver(){}
   eSolver(puzzle cur){_cur = cur;}
+  ~eSolver(){}
   std::vector<int> possible(std::vector<int> r, std::vector<int> c, std::vector<int> b);
   void updateRow(int row, int col, int value);
   void updateCol(int row, int col, int value);
@@ -33,5 +34,10 @@ public:
   puzzle update();
 };
 
+class hSolver {
+  puzzle _cur;
+public:
+  
+};
 
 #endif
