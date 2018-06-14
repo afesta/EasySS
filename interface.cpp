@@ -1,5 +1,6 @@
 #include "interface.hpp"
 #include "puzzles.hpp"
+#include "solverApi.hpp"
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -28,6 +29,9 @@ void interface::input(){
   }
   else if(in == "print"){
     print();
+  }
+  else if(in == "solve"){
+    solve();
   }
 };
 
@@ -66,4 +70,10 @@ void interface::print(){
     std::cout << std::endl;
   }
   std::cout << std::endl;
+}
+
+void interface::solve(){
+  eSolver esolver(_current);
+  puzzle ret = esolver.update();
+  _current = ret;
 }

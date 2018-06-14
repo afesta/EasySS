@@ -4,13 +4,13 @@
 #include <vector>
 
 class puzzle{
+  int* _base;
+public:
   std::vector<std::vector<int> > _rows;
   std::vector<std::vector<int> > _cols;
   std::vector<std::vector<int> > _boxes;
   std::vector<int> _cur;
   int zeros;
-  int* _base;
-public:
   void setBase(int* base);
   int* getBase();
   std::vector<int> getCur();

@@ -15,6 +15,7 @@ public:
   int* genEasy();
   int* genHard();
   void print();
+  void solve();
 };
 
 

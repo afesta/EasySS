@@ -7,20 +7,31 @@
 #include <algorithm>
 
 class solver{
-  puzzle current;
+  puzzle _cur;
 public:
   solver(){}
+  solver(puzzle cur){_cur = cur;}
   virtual ~solver(){}
-  void createRows(puzzle cur);
-  void createCols(int base[81]);
-  void createBoxes(int base[81]);
-  void initBoard();
-  void init();
-  void updateCur();
-  void printCur();
-  void checkZeros();
-  int currentBox(int row, int col);
-  virtual void solve() const = 0;
+  virtual void update() const = 0;
 };
+
+class eSolver {
+  puzzle _cur;
+public:
+  eSolver(){}
+  eSolver(puzzle cur){_cur = cur;}
+  std::vector<int> possible(std::vector<int> r, std::vector<int> c, std::vector<int> b);
+  void updateRow(int row, int col, int value);
+  void updateCol(int row, int col, int value);
+  void updateBox(int row, int col, int value);
+  std::vector<std::vector<int>> possibleByRow(int row);
+  void updateByRow(int row);
+  std::vector<std::vector<int>> possibleByCol(int col);
+  void updateByCol(int col);
+  std::vector<std::vector<int>> possibleByBox(int box);
+  void updateByBox(int box);
+  puzzle update();
+};
+
 
 #endif
