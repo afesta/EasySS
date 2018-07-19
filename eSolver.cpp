@@ -1,5 +1,9 @@
 #include "solverApi.hpp"
 
+//possible
+//takes an int vector for the values in a row, column, and box
+//for every value in r, c, b, if not a zero add it to values
+//use iterator for all numbers in values, if any number (1-9) not in values, add to possibleValues
 std::vector<int> eSolver::possible(std::vector<int> r, std::vector<int> c, std::vector<int> b){
   std::vector<int> values;
   std::vector<int> possibleValues;
@@ -29,6 +33,9 @@ std::vector<int> eSolver::possible(std::vector<int> r, std::vector<int> c, std::
   return possibleValues;
 };
 
+//updateRow, updateCol, updateBox
+//takes row, col, and value
+//updates row, col, or box vector with value for position provided (row and col)
 void eSolver::updateRow(int row, int col, int value){
   if(row == 0){
     _cur._rows[0][col] = value;

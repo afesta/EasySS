@@ -37,6 +37,9 @@ public:
 class hSolver {
   puzzle _cur;
 public:
+  hSolver(){}
+  hSolver(puzzle cur){_cur = cur;}
+  ~hSolver(){}
   
 };
 
